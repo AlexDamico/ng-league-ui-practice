@@ -1,0 +1,111 @@
+@import "./mixins.scss";
+
+* {
+	outline: none;
+	&:hover, &:active, &:focus {
+		outline: none !important;
+	}
+}
+
+a, button, .button, input[type="submit"], .interactive {
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s;
+	&:hover {
+		@include brightness(75%);
+		text-decoration: none;
+	}
+}
+
+ul {
+	&.unstyled {
+		list-style-type: none;
+		padding: 0;
+	}
+	&.inline {
+		list-style-type: none;
+		li { display: inline-block; }
+	}
+}
+
+.switch-container {
+	margin: 10px;
+	.switch {
+		width: 80px;
+		height: 80px;
+		transition: all .33s ease-out;
+		transform-style: preserve-3d;
+		.top, .bottom {
+			height: 80px;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		/* Position the faces */
+		.top { transform: translateZ(40px); }
+		.bottom { transform: rotateX(-90deg) translateZ(-40px); }
+
+		/* Rotate the cube */
+		&:hover { transform: rotateX(90deg); }
+	}
+}
+
+ul.roster {
+	list-style-type: none;
+	width: 92%;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 0;
+	display: flex;
+	li.character-window {
+		flex: 1;
+		position: relative;
+		height: 425px;
+		border: 1px solid black;
+		overflow: hidden;
+		transition: 0.4s all ease;
+		cursor: pointer;
+		-webkit-backface-visibility: hidden;
+		-webkit-transform: translateZ(0) scale(1.0, 1.0);
+		&:hover {
+			border: 1px solid var(--theme-gold);
+			transform: scale(1.1);
+			div.nameplate { bottom: 54px; }
+			div.cta {
+				height: 54px;
+				border-top: 1px solid var(--theme-gold);
+			}
+		}
+		&:not(:last-child) { margin: 0 1% 1% 0; }
+		img { @include position(absolute, 0, -50%, null, null); }
+		div	{
+			@include position(absolute, null, 0, 0, 0);
+			background: rgba(10, 10, 12, 0.9);
+			text-align: center;
+			box-shadow: 0 0 16px 14px rgba(0,0,0,.2);
+			transition: 0.4s all ease;
+			&.nameplate {
+				padding: 22px;
+				border-top: 1px solid var(--theme-gold);
+				h1 {
+					font-size: 14px;
+					color: var(--theme-gold);
+				}
+				h2 {
+					font-size: 12px;
+					color: var(--theme-sand);
+				}
+			}
+			&.cta {
+				height: 0;
+				font-size: 11px;
+				line-height: 54px;
+				color: var(--theme-gold);
+				overflow: hidden;
+			}
+		}
+	}
+}

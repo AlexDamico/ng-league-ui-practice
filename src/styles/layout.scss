@@ -1,0 +1,27 @@
+html, body {
+	background: #0A0A0C;
+	-webkit-perspective: 1000px; 
+}
+
+header {
+	background: url('/assets/background.jpg') no-repeat center center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+section {
+	padding: 5vw 0;
+	background: #0A0A0C;
+}
+
+.center-window {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100vh;
+	img#title {
+		max-width: 700px;
+		margin: 5vw auto 8vw;
+	}
+}

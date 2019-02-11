@@ -1,0 +1,42 @@
+@mixin ui {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin reset-appearance {
+	-webkit-appearance: none;
+	 -moz-appearance: none;
+	 appearance: none;
+}
+
+@mixin brightness($value) {
+	-webkit-filter: brightness($value);
+	filter: brightness($value);
+}
+
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder { color: $color; }
+	&::-moz-placeholder { color: $color; }
+	&:-ms-input-placeholder { color: $color; }
+	&:-moz-placeholder { color: $color; }
+}
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null, $margin: null) {
+	position: $position;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	margin: $margin;
+}
+
+@mixin typography($family, $size, $weight, $line-height: null, $text-transform: null, $letter-spacing: null) {
+	font-family: $family;
+	font-size: $size;
+	font-weight: $weight;
+	line-height: $line-height;
+	text-transform: $text-transform;
+	letter-spacing: $letter-spacing;
+};
